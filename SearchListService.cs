@@ -14,6 +14,16 @@ namespace Example
       var unitModelList = new Unit().queryUnitByUnitId(context);
       unitModeList.sort();
     }
+
+    private void SetStatusOfItems(HttpContext context)
+    {
+      // complete task #5
+      // sort the list when searching
+      var selectedIndex = this.Items.SelectedIndex;
+      var unitModelList = new Unit().queryUnitByUnitId(context);
+      var selectedItems = unitModelList.GetSelectedItems(selectedIndex); 
+      this.Items.Where(item=>item.SelectedIndex == selectedIndex).Selected = true;
+    }
   }
 
 
